@@ -56,13 +56,13 @@ function buildGaugeChart(sample){
             domain : {x: [0,1], y:[0,1]},
             gauge : {
                 axis : {range: [null,10]},
-                bar : {color: "004666"},
+                bar : {color: "#533679"},
                 steps : [
-                    {range: [0,2],color:"#ffffd4"},
-                    {range: [2,4],color:"#eaf4f6"},
-                    {range: [4,6],color:"#d6e9ed"},
-                    {range: [6,8],color:"#c1dee5"},
-                    {range: [8,10],color:"#add4dc"}
+                    {range: [0,2],color:"#e0d5f0"},
+                    {range: [2,4],color:"#d1c0e8"},
+                    {range: [4,6],color:"#c2abe1"},
+                    {range: [6,8],color:"#b296d9"},
+                    {range: [8,10],color:"#936cca"}
                 ],
 
             }
@@ -147,14 +147,17 @@ function buildCharts(sample) {
             y : yvalues,
             text : labelValues,
             type : 'bar',
-            orientation : 'h' 
+            orientation : 'h' ,
+            marker : {
+                color : 'purple'
+            }
         };
 
         let barChartArray = [barChart];
 
         // Set the layout
         let barLayout = {
-            title: "10 Belly Button Bacteria"
+            title: "<b> Top 10 Belly Button Bacteria </b>"
         };
 
         Plotly.newPlot("bar",barChartArray, barLayout);
