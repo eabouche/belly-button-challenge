@@ -6,10 +6,11 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 please visit the final <a href="https://eabouche.github.io/belly-button-challenge/" target="_blank" rel="noopener noreferrer">Belly Button Biodiversity interactive dashboard</a> to analyze the test samples within the dataset.
 
-## Coding Languages and Libraries used:
+### Web Programming Languages and Libraries used:
 - HTML
 - JavaScript
-- Plot.ly
-.
+- CSS
+- Plotly
+- D3.js
        
 ![image](https://user-images.githubusercontent.com/115383317/221377447-690e5782-6a27-4848-9f17-87a03cbe24fc.png)
