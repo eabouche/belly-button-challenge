@@ -31,21 +31,6 @@ function buildMetadata(newSample){
     });
 };
 
-    // let samples = data.samples;
-    // let resultSamples = samples.filter(item => item.id = 940);
-    // let resultSample = resultSamples[0];
-    // console.log('Sample metadata:', resultSample);
-
-    // let otuIds = [];
-    // otuIds.push(resultSample.otu_ids);
-    // console.log(otuIds);
-
-
-    // let otuSampleValues = [];
-    // otuSampleValues.push(resultSample.sample_values);
-    // console.log(otuSampleValues);\
-
-
 // Build gauge chart accessing Metadata property
 function buildGaugeChart(sample){
     // Fetch the json data and console log it
@@ -96,7 +81,7 @@ function buildGaugeChart(sample){
                 b: 25
             },
             font: {
-                color: "darklavender",
+                color: "black",
                 familiy:"Tahoma"
             }
         };
@@ -111,8 +96,11 @@ function buildGaugeChart(sample){
 
 // Create a function to build the charts
 function buildCharts(sample) {
+    // Fetch the json data and console log it
 	d3.json(url).then(function(data){
 		let samples = data.samples;
+
+        // filter the data for the object with the desired sample number
 		let resultArray = samples.filter(sampleObj => sampleObj.id == sample);
 		let result = resultArray[0];
 		
@@ -129,19 +117,20 @@ function buildCharts(sample) {
             marker : {
                 size : sample_values,
                 color : otu_ids,
-                colorscale : "Earth"  // CHANGE ME !!!!!!!!!!!!!
+                colorscale : "Bluered"  
             }
 
         }
 
+        // Build array needed for chart
         let bubbleChartDataArray = [bubbleChart];
 
         // Do layout
         bubbleLayout = {
-            title: "Bacteria Cultures Per Sample",
+            // title: "Bacteria Cultures Per Culture",
             hovermode: "closest",
-            xaxis : {title: "OTU ID (Microbial Species Identification Number)"},
-            yaxis : {title: "Amount Present in Culture"}
+            xaxis : {title: "OTU ID"},
+            yaxis : {title: "Amount Present"}
         };
 
 		// Dispay bubble plot
@@ -165,7 +154,7 @@ function buildCharts(sample) {
 
         // Set the layout
         let barLayout = {
-            title: "Top 10 Belly Button Bacteria"
+            title: "10 Belly Button Bacteria"
         };
 
         Plotly.newPlot("bar",barChartArray, barLayout);
